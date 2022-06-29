@@ -2,11 +2,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Random;
+import java.util.Vector;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -31,8 +34,8 @@ public class CSC372_CT3 extends Application {
       MenuBar mainMenu = new MenuBar(optionsMenu);
 
       MenuItem printDateTime = new MenuItem("Print Date & Time");
-      MenuItem saveDateTime = new MenuItem("Save Date & Time");
-      MenuItem randomOrange = new MenuItem();
+      MenuItem saveDateTime = new MenuItem("Save text to log.txt");
+      MenuItem randomOrange = new MenuItem("Orange");
       MenuItem exit = new MenuItem("Exit");
 
       TextField dateTimeField = new TextField();
@@ -67,7 +70,7 @@ public class CSC372_CT3 extends Application {
             
             String dateTimeValue = dateTimeField.getText();
             try {
-               
+
                FileOutputStream fileStream = new FileOutputStream("log.txt");
                PrintWriter outFS = new PrintWriter(fileStream);
             
@@ -107,6 +110,18 @@ public class CSC372_CT3 extends Application {
       applicationStage.setScene(scene);    // Set window's scene  
       applicationStage.setTitle("Menu Interface II"); // Set window's title
       applicationStage.show();             // Display window
+   }
+
+   public Color getOrange(){
+
+      int colorNum = new Random().nextInt(2);
+      Color orangeColors[] ={
+         Color.rgb(255, 245, 238),
+         Color.rgb(247, 231, 206)
+      };
+
+      return orangeColors[colorNum];
+
    }
    
    public static void main(String [] args) {
