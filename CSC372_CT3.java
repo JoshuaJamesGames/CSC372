@@ -43,7 +43,37 @@ public class CSC372_CT3 extends Application {
       
     
       // Set an event handler to handle button presses
-      optionsMenu.setOnAction(new EventHandler<ActionEvent>() {
+      printDateTime.setOnAction(new EventHandler<ActionEvent>() {
+         /* Method is automatically called when an event 
+            occurs (e.g, button is pressed) */
+         @Override
+         public void handle(ActionEvent event) {
+              
+            
+         } 
+      });
+
+      saveDateTime.setOnAction(new EventHandler<ActionEvent>() {
+         /* Method is automatically called when an event 
+            occurs (e.g, button is pressed) */
+         @Override
+         public void handle(ActionEvent event) {
+              
+            
+         } 
+      });
+
+      randomOrange.setOnAction(new EventHandler<ActionEvent>() {
+         /* Method is automatically called when an event 
+            occurs (e.g, button is pressed) */
+         @Override
+         public void handle(ActionEvent event) {
+              
+            
+         } 
+      });
+
+      exit.setOnAction(new EventHandler<ActionEvent>() {
          /* Method is automatically called when an event 
             occurs (e.g, button is pressed) */
          @Override
