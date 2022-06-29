@@ -8,6 +8,9 @@ import java.util.Vector;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
@@ -92,7 +95,7 @@ public class CSC372_CT3 extends Application {
          @Override
          public void handle(ActionEvent event) {
 
-            dateTimeField.setText("Orange");
+            mainPane.setBackground(new Background(new BackgroundFill(getOrange(), CornerRadii.EMPTY, Insets.EMPTY)));
             
          } 
       });
@@ -114,10 +117,38 @@ public class CSC372_CT3 extends Application {
 
    public Color getOrange(){
 
-      int colorNum = new Random().nextInt(2);
+      int colorNum = new Random().nextInt(30);
       Color orangeColors[] ={
          Color.rgb(255, 245, 238),
-         Color.rgb(247, 231, 206)
+         Color.rgb(247, 231, 206),
+         Color.rgb(255, 229, 180),
+         Color.rgb(245,	222, 179),
+         Color.rgb(250,	214, 165),
+         Color.rgb(251,	206, 177),
+         Color.rgb(237,	201, 175),
+         Color.rgb(255,	179, 71),
+         Color.rgb(222,	184, 135),
+         Color.rgb(255,	168, 18),
+         Color.rgb(255,	167, 0),
+         Color.rgb(229,	170, 112),
+         Color.rgb(225,	169, 95),
+         Color.rgb(227,	168, 87),
+         Color.rgb(195,	176, 145),
+         Color.rgb(255,	140, 0),
+         Color.rgb(228,	155, 15),
+         Color.rgb(237,	145, 33),
+         Color.rgb(255,	127, 0),
+         Color.rgb(242,	133, 0),
+         Color.rgb(237,	135, 45),
+         Color.rgb(255,	117, 24),
+         Color.rgb(193,	154, 107),
+         Color.rgb(255,	103, 0),
+         Color.rgb(205,	127, 50),
+         Color.rgb(204,	119, 34),
+         Color.rgb(210,	105, 30),
+         Color.rgb(184,	115, 51),
+         Color.rgb(160,	120, 90),
+         Color.rgb(204,	85,0)
       };
 
       return orangeColors[colorNum];
