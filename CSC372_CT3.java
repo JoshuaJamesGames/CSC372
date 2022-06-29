@@ -1,3 +1,6 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javafx.application.Application;
@@ -61,11 +64,23 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-
-            dateTimeField.setText("Save");
             
+            String dateTimeValue = dateTimeField.getText();
+            try {
+               
+               FileOutputStream fileStream = new FileOutputStream("log.txt");
+               PrintWriter outFS = new PrintWriter(fileStream);
+            
+               outFS.println(dateTimeValue);     
+
+               outFS.close();
+
+            } catch (Exception e) {
+               dateTimeField.setText(e.getMessage());
+            }
             
          } 
+          
       });
 
       randomOrange.setOnAction(new EventHandler<ActionEvent>() {
@@ -84,7 +99,7 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-            dateTimeField.setText("Exit");
+            applicationStage.close();
             
          } 
       });
