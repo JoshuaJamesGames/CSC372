@@ -1,3 +1,5 @@
+import java.util.Date;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -48,7 +50,8 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-              
+            String currentDateTime = new Date().toString();
+            dateTimeField.setText(currentDateTime);
             
          } 
       });
@@ -58,7 +61,9 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-              
+
+            dateTimeField.setText("Save");
+            
             
          } 
       });
@@ -68,7 +73,8 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-              
+
+            dateTimeField.setText("Orange");
             
          } 
       });
@@ -78,7 +84,7 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-              
+            dateTimeField.setText("Exit");
             
          } 
       });
