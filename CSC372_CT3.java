@@ -94,8 +94,10 @@ public class CSC372_CT3 extends Application {
             occurs (e.g, button is pressed) */
          @Override
          public void handle(ActionEvent event) {
-
-            mainPane.setBackground(new Background(new BackgroundFill(getOrange(), CornerRadii.EMPTY, Insets.EMPTY)));
+            
+            Color orange = getOrange();
+            mainPane.setBackground(new Background(new BackgroundFill(orange, CornerRadii.EMPTY, Insets.EMPTY)));
+            randomOrange.setStyle("-fx-background-color:#"+orange.toString().substring(2, 8));
             
          } 
       });
