@@ -1,9 +1,8 @@
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Random;
-import java.util.Vector;
+
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -13,50 +12,60 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-
+//JavaFX extends Application rather than JFrame from the last assignment
 public class CSC372_CT3 extends Application {
    
-   
+   //Override start
    @Override
    public void start(Stage applicationStage) {
-      Scene scene;         // Scene contains all content
-      GridPane mainPane = new GridPane();   // Positions components within scene
+      //Scene contains all content
+      Scene scene;
+
+      //Root Pane for components within scene         
+      GridPane mainPane = new GridPane();   
       mainPane.setPrefSize(400, 250);
 
+      //MenuBar - Required
       Menu optionsMenu = new Menu("Options");
       MenuBar mainMenu = new MenuBar(optionsMenu);
+      //Make the menu full width - survives resizing
+      mainMenu.prefWidthProperty().bind(mainPane.widthProperty());
 
+      //Four menuItems - Required
       MenuItem printDateTime = new MenuItem("Print Date & Time");
       MenuItem saveDateTime = new MenuItem("Save text to log.txt");
       MenuItem randomOrange = new MenuItem("Orange");
       MenuItem exit = new MenuItem("Exit");
 
+      //TextField - Required for pinting current date and time
       TextField dateTimeField = new TextField();
       dateTimeField.setPromptText("Use the Menu to Populate");
       dateTimeField.setEditable(false);
+      dateTimeField.setAlignment(Pos.TOP_CENTER);
       
+      //Assemble the components
       optionsMenu.getItems().addAll(printDateTime, saveDateTime, randomOrange, exit);
       mainPane.add(mainMenu, 0, 0);
       mainPane.add(dateTimeField, 0, 1);
 
-      scene = new Scene(mainPane); // Create scene containing the grid pane
+      //Initialize scene containing the grid pane
+      scene = new Scene(mainPane); 
       
       
     
-      // Set an event handler to handle button presses
+      //Set an event handlers to handle menuItem presses
+      //In here dwells logic
       printDateTime.setOnAction(new EventHandler<ActionEvent>() {
-         /* Method is automatically called when an event 
-            occurs (e.g, button is pressed) */
+         //Print the current date and time to dateTimeField
          @Override
          public void handle(ActionEvent event) {
             String currentDateTime = new Date().toString();
@@ -66,8 +75,8 @@ public class CSC372_CT3 extends Application {
       });
 
       saveDateTime.setOnAction(new EventHandler<ActionEvent>() {
-         /* Method is automatically called when an event 
-            occurs (e.g, button is pressed) */
+         //Save the contents of the dateTimeField to log.txt
+         //This may be an empty line or the default message
          @Override
          public void handle(ActionEvent event) {
             
@@ -90,8 +99,7 @@ public class CSC372_CT3 extends Application {
       });
 
       randomOrange.setOnAction(new EventHandler<ActionEvent>() {
-         /* Method is automatically called when an event 
-            occurs (e.g, button is pressed) */
+         //Make the background of the mainPane and randomOrange menuItem a shade of orange
          @Override
          public void handle(ActionEvent event) {
             
@@ -103,21 +111,25 @@ public class CSC372_CT3 extends Application {
       });
 
       exit.setOnAction(new EventHandler<ActionEvent>() {
-         /* Method is automatically called when an event 
-            occurs (e.g, button is pressed) */
+         //Handle the close button
          @Override
          public void handle(ActionEvent event) {
             applicationStage.close();
             
          } 
       });
-
+      //Start the application
       applicationStage.setScene(scene);    // Set window's scene  
       applicationStage.setTitle("Menu Interface II"); // Set window's title
       applicationStage.show();             // Display window
    }
 
+   //Programmatically defining Orange turns out to be an enigma for me
+   //There are 28000+ shades of accepted orange 
+   //between almost yellow-white and dark-brown-red
+   //So I have hand-keyed 30 colors and getOrange() selects one at random
    public Color getOrange(){
+      //Orange colors from workwithcolor.com/orange-brown-color-hue-range-01.htm
 
       int colorNum = new Random().nextInt(30);
       Color orangeColors[] ={
@@ -157,7 +169,8 @@ public class CSC372_CT3 extends Application {
 
    }
    
+   //Just a single line to launch it all
    public static void main(String [] args) {
-      launch(args); // Launch application
+      launch(args); 
    }
 }
