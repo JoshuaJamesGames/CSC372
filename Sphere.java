@@ -16,5 +16,11 @@ public class Sphere extends Shape{
         //Sphere Volume formula
         return ((4/3)*Math.PI * Math.pow(radius, 3));
     }
+
+    @Override
+    public String toString(){
+        //Override toString for convenient printing
+        return String.format("%.2f area, %.2f volume", this.surface_area(), this.volume());
+    }
     
 }
