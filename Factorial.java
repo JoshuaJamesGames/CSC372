@@ -3,12 +3,12 @@ public class Factorial {
         System.out.println(factorial(5));
     }
 
-    public static int factorial(int factor){
+    public static int factorial(int number){
 
-        if (factor <= 1){
+        if (number <= 1){
             return 1;
         }else{
-            return factor * factorial(factor -1);
+            return number * factorial(number -1);
         }        
 
     }
