@@ -14,13 +14,13 @@ public class Sphere extends Shape{
     @Override
     public double volume() {
         //Sphere Volume formula
-        return ((4/3)*Math.PI * Math.pow(radius, 3));
+        return (4 * Math.PI * Math.pow(radius, 3) / 3);
     }
 
     @Override
     public String toString(){
         //Override toString for convenient printing
-        return String.format("%.2f area, %.2f volume", this.surface_area(), this.volume());
+        return String.format("Sphere: %.2f area, %.2f volume", this.surface_area(), this.volume());
     }
     
 }

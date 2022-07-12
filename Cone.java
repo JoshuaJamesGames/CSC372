@@ -23,7 +23,7 @@ public class Cone extends Shape{
     @Override
     public String toString(){
         //Override toString for convenient printing
-        return String.format("%.2f area, %.2f volume", this.surface_area(), this.volume());
+        return String.format("Cone: %.2f area, %.2f volume", this.surface_area(), this.volume());
     }
     
 }

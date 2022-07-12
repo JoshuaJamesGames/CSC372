@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 public class ShapeArray {
-    private Sphere mySphere;
-    private Cylinder myCylinder;
-    private Cone myCone;
+    public static void storeAndPrint(){
+        //Create 3 sub-classes of Shape
+        Sphere mySphere;
+        Cylinder myCylinder;
+        Cone myCone;
 
-    private ArrayList<Shape> threeShapes = new ArrayList<Shape>();
-
-    ShapeArray(){
+        //An ArrayList for the Shape(s)
+        ArrayList<Shape> threeShapes = new ArrayList<Shape>();
+    
         mySphere = new Sphere(5);
         myCylinder = new Cylinder(6, 6);
         myCone = new Cone(7, 7);
