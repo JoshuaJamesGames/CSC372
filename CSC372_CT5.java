@@ -12,7 +12,7 @@ The program will provide the product of all five numbers using recursive methods
 
 public class CSC372_CT5 {
     public static void main(String[] args) {
-        
+        System.out.println(recursiveProductFinder(getInput(5)));
     }
 
     //Intro
@@ -21,14 +21,14 @@ public class CSC372_CT5 {
     }
 
     //Collect Input
-    public ArrayList<Double> getInput(int numInputs){
+    public static ArrayList<Double> getInput(int numInputs){
         
         ArrayList<Double> inputs = new ArrayList<Double>();
         Scanner scnr = new Scanner(System.in);
         double userInput;
 
         for(int i = 0; i < numInputs; i++){
-            System.out.println("What is input #" + (i+1) + ": ");
+            System.out.print("What is input #" + (i+1) + ": ");
             userInput = scnr.nextDouble();
             inputs.add(userInput);
         }
@@ -38,8 +38,9 @@ public class CSC372_CT5 {
     }
 
     //Recursive product function
-    public double recursiveProductFinder(ArrayList<Double> inputList){
+    public static double recursiveProductFinder(ArrayList<Double> inputList){
         double product;
+        
         if(inputList.size() == 0){
             return 0;
         }
