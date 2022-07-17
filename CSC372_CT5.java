@@ -11,16 +11,30 @@ The program will provide the product of all five numbers using recursive methods
 
 
 public class CSC372_CT5 {
+    //Mainline logic
     public static void main(String[] args) {
-        System.out.println(recursiveProductFinder(getInput(5)));
+        
+        introduction();
+        //General error catching for type mismatch
+        try{
+            
+            System.out.println("The product of those numbers is: " + recursiveProductFinder(getInput(5)));
+        
+        }catch(Exception e){
+            System.out.println("There was an input error: " + e);
+        }
+        
+        conclusion();
     }
 
     //Intro
-    public void introduction(){
-
+    public static void introduction(){
+        System.out.println("Welcome to the Recursive Product Program!");
+        System.out.println("Input 5 numbers and thier product will be calculated.\n");
     }
 
-    //Collect Input
+    //Collect Input - could be re-used for input multiples.
+    //Returns and array of doubles given a size argument
     public static ArrayList<Double> getInput(int numInputs){
         
         ArrayList<Double> inputs = new ArrayList<Double>();
@@ -38,6 +52,7 @@ public class CSC372_CT5 {
     }
 
     //Recursive product function
+    //Returns the first element and multiplies by the remaining first elements until only one remains
     public static double recursiveProductFinder(ArrayList<Double> inputList){
         double product;
         
@@ -56,8 +71,8 @@ public class CSC372_CT5 {
     }
     
     //Outtro
-    public void conclusion(){
-
+    public static void conclusion(){
+        System.out.println("\nGoodbye!");
     }
 
 }
