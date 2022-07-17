@@ -15,13 +15,14 @@ public class CSC372_CT5 {
     public static void main(String[] args) {
         
         introduction();
-        //General error catching for type mismatch
+        //General error catching for type mismatch - non recoverable
         try{
             
             System.out.println("The product of those numbers is: " + recursiveProductFinder(getInput(5)));
         
         }catch(Exception e){
             System.out.println("There was an input error: " + e);
+            
         }
         
         conclusion();
@@ -39,6 +40,7 @@ public class CSC372_CT5 {
         
         ArrayList<Double> inputs = new ArrayList<Double>();
         Scanner scnr = new Scanner(System.in);
+        //Using double so decimal numbers are accepted
         double userInput;
 
         for(int i = 0; i < numInputs; i++){
