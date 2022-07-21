@@ -27,18 +27,21 @@ public class CSC372_CT6 {
         studentList.addAll(makeStudentList());
 
         //Print the list in original order
+        System.out.println("Printing in Original order.\n");
         printStudents(studentList);
         
         //Sort by rollno
         //MergeSort rollno order
         
         //Print the list in rollno order
+        System.out.println("\nPrinting in roll number order.\n");
         printStudents(studentList);
 
         //Sort by name
         //MergSort name order
 
         //Print the list in name order
+        System.out.println("\nPrinting in name order.\n");
         printStudents(studentList);
 
         //Conclusion
@@ -49,7 +52,7 @@ public class CSC372_CT6 {
     public static void introduction(){
         System.out.println("Welcome to a Sorting sampler!");
         System.out.println("We will store 10 students to an Arraylist.");
-        System.out.println("Then print them in order base one different attributes.");
+        System.out.println("Then print them in order base one different attributes.\n");
     }
 
     //create ArrayList of Students
