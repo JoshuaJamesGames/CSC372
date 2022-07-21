@@ -31,7 +31,7 @@ public class CSC372_CT6 {
         printStudents(studentList);
         
         //Sort by rollno
-        //MergeSort rollno order
+        studentList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyname()));
         
         //Print the list in rollno order
         System.out.println("\nPrinting in roll number order.\n");

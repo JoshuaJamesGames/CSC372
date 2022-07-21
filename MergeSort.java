@@ -1,11 +1,14 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class MergeSort {
-    public static void sort(ArrayList<Student> studentList, Comparator<Student> comparator){
+    public static Student[] sort(ArrayList<Student> studentList, Comparator<Student> comparator){
+        
         Student studentArray[] = studentList.toArray(new Student[studentList.size()]);
         mergeSort(studentArray, studentList.size(), comparator);
+
+        return studentList.addAll(studentArray);//Converting to ArrayList from Student[]
+
     }
 
     public static void merge(Student[] left_arr,Student[] right_arr, Student[] arr,int left_size, int right_size, Comparator<Student> comparator){
