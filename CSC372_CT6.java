@@ -15,5 +15,30 @@ Do not use a sort method from the Java collections library.
 
 
 public class CSC372_CT6 {
+    public static void main(String[] args) {
+        //Intro
+
+        //Create 10 students
+
+        //Print the list in original order
+
+        //Sort by rollno
+
+        //Print the list in rollno order
+
+        //Sort by name
+
+        //Print the list in name order
+
+        //Conclusion
+    }
     
+    //Intro
+
+    //create ArrayList of Students
+
+    //Print Students
+
+    //Conclusion
+
 }
