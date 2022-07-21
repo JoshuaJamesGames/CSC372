@@ -11,4 +11,10 @@ public class Student {
         this.address = address;
         
     }
+
+    @Override
+    public String toString(){
+        return ("Roll Number: " + rollno+ " Name: " + name + " Address: " + address);
+    }
+
 }
