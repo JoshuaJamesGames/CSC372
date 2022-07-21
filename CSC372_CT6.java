@@ -18,32 +18,42 @@ Do not use a sort method from the Java collections library.
 
 public class CSC372_CT6 {
     public static void main(String[] args) {
+        ArrayList<Student> studentList = new ArrayList<Student>();
+        
         //Intro
+        introduction();
 
         //Create 10 students
+        studentList.addAll(makeStudentList());
 
         //Print the list in original order
-
+        printStudents(studentList);
+        
         //Sort by rollno
-
+        //MergeSort rollno order
+        
         //Print the list in rollno order
+        printStudents(studentList);
 
         //Sort by name
+        //MergSort name order
 
         //Print the list in name order
+        printStudents(studentList);
 
         //Conclusion
+        conclusion();
     }
     
     //Intro
-    public void introduction(){
+    public static void introduction(){
         System.out.println("Welcome to a Sorting sampler!");
         System.out.println("We will store 10 students to an Arraylist.");
         System.out.println("Then print them in order base one different attributes.");
     }
 
     //create ArrayList of Students
-    public ArrayList<Student> makeStudentList(){
+    public static ArrayList<Student> makeStudentList(){
         ArrayList<Student> studentList = new ArrayList<Student>();
 
         studentList.add(new Student(2, "Joshua", "Aurora"));
@@ -59,8 +69,15 @@ public class CSC372_CT6 {
 
         return studentList;
     }
+    
     //Print Students
+    public static void printStudents(ArrayList<Student> studentList){
+        studentList.forEach((student) -> System.out.println(student));
+    }
 
     //Conclusion
+    public static void conclusion(){
+        System.out.println("\nGoodbye!");
+    }
 
 }
