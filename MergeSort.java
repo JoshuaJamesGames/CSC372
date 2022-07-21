@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class MergeSort {
-    public static void sort(ArrayList<Student> studentList){
-        
+    public static void sort(ArrayList<Student> studentList, Comparator<Student> comparator){
+        Student studentArray[] = studentList.toArray(new Student[studentList.size()]);
+        mergeSort(studentArray, studentList.size(), comparator);
     }
 
     public static void merge(Student[] left_arr,Student[] right_arr, Student[] arr,int left_size, int right_size, Comparator<Student> comparator){
@@ -28,7 +30,7 @@ public class MergeSort {
         }
     }
   
-    public static void mergeSort(Student [] arr, int len, Comparator<Student> comparator){
+    public static void mergeSort(Student[] arr, int len, Comparator<Student> comparator){
         if (len < 2){return;}
         
         int mid = len / 2;
