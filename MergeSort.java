@@ -2,12 +2,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class MergeSort {
-    public static Student[] sort(ArrayList<Student> studentList, Comparator<Student> comparator){
+    public static ArrayList<Student> sort(ArrayList<Student> studentList, Comparator<Student> comparator){
         
         Student studentArray[] = studentList.toArray(new Student[studentList.size()]);
+        
         mergeSort(studentArray, studentList.size(), comparator);
 
-        return studentList.addAll(studentArray);//Converting to ArrayList from Student[]
+        return convertToArrayList(studentArray);//Converting to ArrayList from Student[]
 
     }
 
@@ -18,7 +19,7 @@ public class MergeSort {
         //The while loops check the conditions for merging
         while(l<left_size && r<right_size){
             
-            if(comparator.compare(left_arr[l],right_arr[r]) > 0){
+            if(comparator.compare(left_arr[l],right_arr[r]) < 0){
                 arr[i++] = left_arr[l++];
             }
             else{
@@ -58,8 +59,18 @@ public class MergeSort {
         merge(left_arr,right_arr,arr,mid,len-mid, comparator);
     }
 
+    public static ArrayList<Student> convertToArrayList(Student[] studentArray){
+        ArrayList<Student> studentList = new ArrayList<Student>();
+        
+        for(int i = 0; i < studentArray.length; i++){
+            studentList.add(studentArray[i]);
+        }
+                
+        return studentList;
+    }
+
     // Helper class implementing Comparator interface
-    class Sortbyroll implements Comparator<Student> {
+    static class Sortbyroll implements Comparator<Student> {
  
         // Method
         // Sorting in ascending order of roll number
@@ -71,7 +82,7 @@ public class MergeSort {
  
     
     // Helper class implementing Comparator interface
-    class Sortbyname implements Comparator<Student>{
+    static class Sortbyname implements Comparator<Student>{
     
         // Method
         // Sorting in ascending order of name
@@ -80,4 +91,6 @@ public class MergeSort {
             return a.name.compareTo(b.name);
         }
     }
+
+    
 }

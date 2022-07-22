@@ -19,30 +19,34 @@ Do not use a sort method from the Java collections library.
 public class CSC372_CT6 {
     public static void main(String[] args) {
         ArrayList<Student> studentList = new ArrayList<Student>();
+        ArrayList<Student> printList = new ArrayList<Student>();
         
         //Intro
         introduction();
 
         //Create 10 students
         studentList.addAll(makeStudentList());
+        printList.addAll(makeStudentList());
 
         //Print the list in original order
         System.out.println("Printing in Original order.\n");
-        printStudents(studentList);
+        printStudents(printList);
         
         //Sort by rollno
-        studentList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyname()));
+        printList.clear();        
+        printList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyroll()));
         
         //Print the list in rollno order
         System.out.println("\nPrinting in roll number order.\n");
-        printStudents(studentList);
+        printStudents(printList);
 
         //Sort by name
-        //MergSort name order
+        printList.clear();
+        printList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyname()));
 
         //Print the list in name order
         System.out.println("\nPrinting in name order.\n");
-        printStudents(studentList);
+        printStudents(printList);
 
         //Conclusion
         conclusion();
