@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 
+//This would be simpler if the requirements were not an ArrayList of Students
+//Need to convert to an Array and back to an ArrayList
 public class MergeSort {
     public static ArrayList<Student> sort(ArrayList<Student> studentList, Comparator<Student> comparator){
         
@@ -12,51 +14,56 @@ public class MergeSort {
 
     }
 
-    public static void merge(Student[] left_arr,Student[] right_arr, Student[] arr,int left_size, int right_size, Comparator<Student> comparator){
+    //Classic array Merge - called by mergeSort
+    public static void merge(Student[] leftArray,Student[] rightArray, Student[] studentArray,int leftArraySize, int rightArraySize, Comparator<Student> comparator){
       
-        int i=0,l=0,r = 0;
+        int i = 0;
+        int left = 0;
+        int right = 0;
         
         //The while loops check the conditions for merging
-        while(l<left_size && r<right_size){
+        while(left<leftArraySize && right<rightArraySize){
             
-            if(comparator.compare(left_arr[l],right_arr[r]) < 0){
-                arr[i++] = left_arr[l++];
+            if(comparator.compare(leftArray[left],rightArray[right]) < 0){
+                studentArray[i++] = leftArray[left++];
             }
             else{
-                arr[i++] = right_arr[r++];
+                studentArray[i++] = rightArray[right++];
             }
         }
-        while(l<left_size){
-            arr[i++] = left_arr[l++];
+        while(left<leftArraySize){
+            studentArray[i++] = leftArray[left++];
         }
-        while(r<right_size){
-          arr[i++] = right_arr[r++];
+        while(right<rightArraySize){
+          studentArray[i++] = rightArray[right++];
         }
     }
-  
-    public static void mergeSort(Student[] arr, int len, Comparator<Student> comparator){
-        if (len < 2){return;}
+    
+    //Classic mergSort with added Comparator
+    public static void mergeSort(Student[] studentArray, int arrayLength, Comparator<Student> comparator){
+        if (arrayLength < 2){return;}
         
-        int mid = len / 2;
-        Student [] left_arr = new Student[mid];
-        Student [] right_arr = new Student[len-mid];
+        int middle = arrayLength / 2;
+        Student [] leftArray = new Student[middle];
+        Student [] rightArray = new Student[arrayLength-middle];
         
       //Dividing array into two and copying into two separate arrays
-        int k = 0;
-        for(int i = 0;i<len;++i){
-            if(i<mid){
-                left_arr[i] = arr[i];
+        int j = 0;
+        for(int i = 0;i<arrayLength;++i){
+            if(i<middle){
+                leftArray[i] = studentArray[i];
             }
             else{
-                right_arr[k] = arr[i];
-                k = k+1;
+                rightArray[j] = studentArray[i];
+                j = j+1;
             }
         }
-      // Recursively calling the function to divide the subarrays further
-        mergeSort(left_arr,mid, comparator);
-        mergeSort(right_arr,len-mid, comparator);
-      // Calling the merge method on each subdivision
-        merge(left_arr,right_arr,arr,mid,len-mid, comparator);
+      //Recursive call to mergeSort to divide the subarrays further
+        mergeSort(leftArray, middle, comparator);
+        mergeSort(rightArray, arrayLength-middle, comparator);
+
+      //Call merge method on each subdivision to sort and assemble
+        merge(leftArray, rightArray, studentArray, middle, arrayLength-middle, comparator);
     }
 
     public static ArrayList<Student> convertToArrayList(Student[] studentArray){
@@ -69,11 +76,10 @@ public class MergeSort {
         return studentList;
     }
 
-    // Helper class implementing Comparator interface
+    //Comparator interface for sorting by roll number
     static class Sortbyroll implements Comparator<Student> {
  
-        // Method
-        // Sorting in ascending order of roll number
+        //Sort in ascending order of roll number
         public int compare(Student a, Student b){
  
             return a.rollno - b.rollno;
@@ -81,11 +87,10 @@ public class MergeSort {
     }
  
     
-    // Helper class implementing Comparator interface
+    //Comparator interface for sorting by name
     static class Sortbyname implements Comparator<Student>{
     
-        // Method
-        // Sorting in ascending order of name
+        //Sort in ascending order of name
         public int compare(Student a, Student b){
     
             return a.name.compareTo(b.name);
