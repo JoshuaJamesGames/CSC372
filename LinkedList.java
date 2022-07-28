@@ -16,12 +16,14 @@ public class LinkedList<T> {
     public void add(T newNode){
         if (head == null){
             Node<T> firstNode = new Node<T>(newNode);
+            
             head = firstNode;
             tail = firstNode;
         }else{
             Node<T> nextNode = new Node<T>(newNode);
+            
+            head.setNext(nextNode);
             tail = nextNode;
-            tail.setNext(nextNode);
         }
     }
     

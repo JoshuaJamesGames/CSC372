@@ -20,14 +20,17 @@ Validate numeric data for miles-per-gallon.
 public class CSC372_Portfolio_Project {
 
     public static void main(String[] args) {
+        LinkedList<Vehicle> vehicleList = new LinkedList<Vehicle>();
         //Intro
         introduction();
 
         //Collect Input
+        getVehicles(3, vehicleList);
 
         //Sort
 
         //Output
+        System.out.println(vehicleList);
 
         //Conclusion   
     }
@@ -48,13 +51,13 @@ public class CSC372_Portfolio_Project {
 
         for(int i = 0; i < numVehicles; i++){
 
-            System.out.print("What is the make of vehicle #" + (i+1) + ": ");
+            System.out.print("\nWhat is the make of vehicle #" + (i+1) + ": ");
             makeInput = scnr.next();
 
-            System.out.print("What is the model of the" + makeInput + ": ");
+            System.out.print("What model of " + makeInput + ": ");
             modelInput = scnr.next();
 
-            System.out.print("What is the MPG of the " +makeInput + " " + modelInput +": ");
+            System.out.print("What MPG does the " +makeInput + " " + modelInput +" get: ");
             mpgInput = scnr.nextDouble();
 
             vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
