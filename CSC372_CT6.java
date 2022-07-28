@@ -37,7 +37,7 @@ public class CSC372_CT6 {
         printList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyroll()));
         
         //Print the list in rollno order
-        System.out.println("\nPrinting in roll number order.\n");
+        System.out.println("\nPrinting in Roll Number order.\n");
         printStudents(printList);
 
         //Sort by name
@@ -45,7 +45,7 @@ public class CSC372_CT6 {
         printList.addAll(MergeSort.sort(studentList, new MergeSort.Sortbyname()));
 
         //Print the list in name order
-        System.out.println("\nPrinting in name order.\n");
+        System.out.println("\nPrinting in Name order.\n");
         printStudents(printList);
 
         //Conclusion
@@ -56,7 +56,7 @@ public class CSC372_CT6 {
     public static void introduction(){
         System.out.println("Welcome to a Sorting sampler!");
         System.out.println("We will store 10 students to an Arraylist.");
-        System.out.println("Then print them in order base one different attributes.\n");
+        System.out.println("Then print them in order based on different attributes.\n");
     }
 
     //create ArrayList of Students
