@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
 Write a Java program that incorporates a loop that prompts a user for vehicle data. 
 Vehicle data are private fields in a Vehicle class that include:
@@ -16,13 +18,49 @@ Validate numeric data for miles-per-gallon.
 */
 
 public class CSC372_Portfolio_Project {
-    //Intro
 
-    //Collect Input
+    public static void main(String[] args) {
+        //Intro
+        introduction();
 
-    //Sort
+        //Collect Input
 
-    //Output
+        //Sort
 
-    //Conclusion
+        //Output
+
+        //Conclusion   
+    }
+    
+
+    static void introduction(){
+        System.out.println("Welcome to the Vehicle Miles Per Gallon sorter!");
+        System.out.println("Let's collect 10 vehicles from you.");
+    }
+
+    public static void getVehicles(int numVehicles, LinkedList<Vehicle> vehicleList){
+        
+        Scanner scnr = new Scanner(System.in);
+
+        String makeInput;
+        String modelInput;
+        double mpgInput;
+
+        for(int i = 0; i < numVehicles; i++){
+
+            System.out.print("What is the make of vehicle #" + (i+1) + ": ");
+            makeInput = scnr.next();
+
+            System.out.print("What is the model of the" + makeInput + ": ");
+            modelInput = scnr.next();
+
+            System.out.print("What is the MPG of the " +makeInput + " " + modelInput +": ");
+            mpgInput = scnr.nextDouble();
+
+            vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
+        }
+        scnr.close();
+    
+    }
+
 }
