@@ -25,7 +25,7 @@ public class Vehicle {
 
     @Override
     public String toString(){
-        return String.format("A %s %s gets %02f miles per gallon.", make, model, milesPerGallon);
+        return String.format("A %s %s gets %.02f miles per gallon.", make, model, milesPerGallon);
     }
    
 }
