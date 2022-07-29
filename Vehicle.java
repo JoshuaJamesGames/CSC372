@@ -32,9 +32,9 @@ public class Vehicle implements Comparable<Vehicle>{
     public int compareTo(Vehicle vehicle){
         
         if (this.milesPerGallon - vehicle.milesPerGallon < 0){
-            return 1;
-        }else if(this.milesPerGallon - vehicle.milesPerGallon > 0){
             return -1;
+        }else if(this.milesPerGallon - vehicle.milesPerGallon > 0){
+            return 1;
         }else{
             return 0;
         }

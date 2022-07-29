@@ -23,15 +23,17 @@ public class CSC372_Portfolio_Project {
     public static void main(String[] args) {
         LinkedList<Vehicle> vehicleList = new LinkedList<Vehicle>();
         Vehicle[] vehicleArray;
+        int numVehicles = 10;
         //Intro
-        introduction();
+        introduction(numVehicles);
 
         //Collect Input
-        getVehicles(3, vehicleList);
+        getVehicles(numVehicles, vehicleList);
 
         //Sort
         vehicleArray = vehicleList.toArray(new Vehicle[vehicleList.size()]);
         Arrays.sort(vehicleArray);
+        vehicleList.clear();
         vehicleList.addAll(vehicleArray);
 
         //Output
@@ -42,9 +44,9 @@ public class CSC372_Portfolio_Project {
     }
     
 
-    static void introduction(){
+    static void introduction(int numVehicles){
         System.out.println("Welcome to the Vehicle Miles Per Gallon sorter!");
-        System.out.println("Let's collect 10 vehicles from you.");
+        System.out.println("Let's collect " + numVehicles + " vehicles from you.");
     }
 
     public static void getVehicles(int numVehicles, LinkedList<Vehicle> vehicleList){
