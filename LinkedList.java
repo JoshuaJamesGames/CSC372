@@ -27,12 +27,14 @@ public class LinkedList<T> {
         }
     }
 
+    //addAll
     public void addAll(T[] array){
-        Node<T> currentNode = getLast();
         
-        while(currentNode != null){
-            this.add(currentNode.get());
-            currentNode = currentNode.getNext();
+        int size = array.length;
+
+        while(size <= 0){
+            this.add(array[size--]);
+            
         }
     }
     
