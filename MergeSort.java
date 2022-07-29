@@ -4,9 +4,9 @@ import java.util.Comparator;
 //This would be simpler if the requirements were not an ArrayList of Students
 //Need to convert to an Array and back to an ArrayList
 public class MergeSort {
-    public static ArrayList<T> sort(ArrayList<T> arrayList, Comparator<T> comparator){
+    public static ArrayList<Student> sort(ArrayList<Student> arrayList, Comparator<Student> comparator){
         
-        T sortArray[] = arrayList.toArray(new T[arrayList.size()]);
+        Student sortArray[] = arrayList.toArray(new Student[arrayList.size()]);
         
         mergeSort(sortArray, arrayList.size(), comparator);
 
@@ -15,7 +15,7 @@ public class MergeSort {
     }
 
     //Classic array Merge - called by mergeSort
-    public static void merge(T[] leftArray,T[] rightArray, T[] sortArray,int leftArraySize, int rightArraySize, Comparator<T> comparator){
+    public static void merge(Student[] leftArray,Student[] rightArray, Student[] sortArray,int leftArraySize, int rightArraySize, Comparator<Student> comparator){
       
         int i = 0;
         int left = 0;
@@ -40,12 +40,12 @@ public class MergeSort {
     }
     
     //Classic mergSort with added Comparator
-    public static void mergeSort(T[] sortArray, int arrayLength, Comparator<T> comparator){
+    public static void mergeSort(Student[] sortArray, int arrayLength, Comparator<Student> comparator){
         if (arrayLength < 2){return;}
         
         int middle = arrayLength / 2;
-        T [] leftArray = new T[middle];
-        T [] rightArray = new T[arrayLength-middle];
+        Student [] leftArray = new Student[middle];
+        Student [] rightArray = new Student[arrayLength-middle];
         
       //Dividing array into two and copying into two separate arrays
         int j = 0;
@@ -66,36 +66,15 @@ public class MergeSort {
         merge(leftArray, rightArray, sortArray, middle, arrayLength-middle, comparator);
     }
 
-    public static ArrayList<T> convertToArrayList(T[] array){
-        ArrayList<T> arrayList = new ArrayList<T>();
+    public static ArrayList<Student> convertToArrayList(Student[] array){
+        ArrayList<Student> arrayList = new ArrayList<Student>();
         
         for(int i = 0; i < array.length; i++){
             arrayList.add(array[i]);
         }
                 
         return arrayList;
-    }
-
-    //Comparator interface for sorting by roll number
-    static class Sortbyroll implements Comparator<T> {
- 
-        //Sort in ascending order of roll number
-        public int compare(T a, T b){
- 
-            return a.rollno - b.rollno;
-        }
-    }
- 
-    
-    //Comparator interface for sorting by name
-    static class Sortbyname implements Comparator<T>{
-    
-        //Sort in ascending order of name
-        public int compare(T a, T b){
-    
-            return a.name.compareTo(b.name);
-        }
-    }
+    }   
 
     
 }
