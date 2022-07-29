@@ -9,7 +9,7 @@ Override toString for easy printing
 Include Comparators for sorting
 */
 
-public class Vehicle {
+public class Vehicle implements Comparable<Vehicle>{
 
     private String make;
     private String model;
@@ -26,6 +26,19 @@ public class Vehicle {
     @Override
     public String toString(){
         return String.format("A %s %s gets %.02f miles per gallon.", make, model, milesPerGallon);
+    }
+
+    @Override
+    public int compareTo(Vehicle vehicle){
+        
+        if (this.milesPerGallon - vehicle.milesPerGallon < 0){
+            return -1;
+        }else if(this.milesPerGallon - vehicle.milesPerGallon > 0){
+            return 1;
+        }else{
+            return 0;
+        }
+        
     }
    
 }
