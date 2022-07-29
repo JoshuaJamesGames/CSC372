@@ -30,10 +30,10 @@ public class LinkedList<T> {
     //addAll
     public void addAll(T[] array){
         
-        int size = array.length;
+        int size = 0;
 
-        while(size <= 0){
-            this.add(array[size--]);
+        while(size < array.length){
+            this.add(array[size++]);
             
         }
     }
@@ -60,6 +60,12 @@ public class LinkedList<T> {
         }
 
         return size;
+    }
+
+    //clear
+    public void clear(){
+        this.head = null;
+        this.tail = null;
     }
 
     //toArray
