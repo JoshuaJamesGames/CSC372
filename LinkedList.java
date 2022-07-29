@@ -38,6 +38,32 @@ public class LinkedList<T> {
     }
 
     //size
+    public int size(){
+
+        Node<T> currentNode = getFirst();
+        int size = 0;
+
+        while(currentNode != null){
+            size++;
+            currentNode = currentNode.getNext();
+        }
+
+        return size;
+    }
+
+    //toArray
+    public T[] toArray(T[] array){
+        
+        Node<T> currentNode = getFirst();
+        int i = 0;
+
+        while(currentNode != null){
+            array[i++]= currentNode.get();
+            currentNode = currentNode.getNext();
+        }
+
+        return array;
+    }
 
     //toString
     @Override
