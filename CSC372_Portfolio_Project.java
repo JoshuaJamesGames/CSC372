@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -21,6 +22,7 @@ public class CSC372_Portfolio_Project {
 
     public static void main(String[] args) {
         LinkedList<Vehicle> vehicleList = new LinkedList<Vehicle>();
+        Vehicle[] vehicleArray;
         //Intro
         introduction();
 
@@ -28,9 +30,13 @@ public class CSC372_Portfolio_Project {
         getVehicles(3, vehicleList);
 
         //Sort
+        vehicleArray = vehicleList.toArray(new Vehicle[vehicleList.size()]);
+        Arrays.sort(vehicleArray);
+        vehicleList.addAll(vehicleArray);
 
         //Output
         System.out.println(vehicleList);
+        
 
         //Conclusion   
     }
