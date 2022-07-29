@@ -26,6 +26,15 @@ public class LinkedList<T> {
             tail = nextNode;
         }
     }
+
+    public void addAll(T[] array){
+        Node<T> currentNode = getLast();
+        
+        while(currentNode != null){
+            this.add(currentNode.get());
+            currentNode = currentNode.getNext();
+        }
+    }
     
     //getFirst
     public Node<T> getFirst(){
@@ -52,6 +61,7 @@ public class LinkedList<T> {
     }
 
     //toArray
+    //Needs to be supplied with an appropriately sized generic array
     public T[] toArray(T[] array){
         
         Node<T> currentNode = getFirst();
