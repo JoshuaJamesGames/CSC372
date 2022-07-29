@@ -18,8 +18,8 @@ Do not use a sort method from the Java collections library.
 
 public class CSC372_CT6 {
     public static void main(String[] args) {
-        ArrayList<Student> studentList = new ArrayList<Student>();
-        ArrayList<Student> printList = new ArrayList<Student>();
+        ArrayList<T> studentList = new ArrayList<T>();
+        ArrayList<T> printList = new ArrayList<T>();
         
         //Intro
         introduction();
@@ -60,25 +60,25 @@ public class CSC372_CT6 {
     }
 
     //create ArrayList of Students
-    public static ArrayList<Student> makeStudentList(){
-        ArrayList<Student> studentList = new ArrayList<Student>();
+    public static ArrayList<T> makeStudentList(){
+        ArrayList<T> studentList = new ArrayList<T>();
 
-        studentList.add(new Student(2, "Joshua", "Aurora"));
-        studentList.add(new Student(1, "Douglas", "Bulawayo"));
-        studentList.add(new Student(4, "Kianna", "Burnsville"));
-        studentList.add(new Student(7, "Kelsey", "Colorado Springs"));
-        studentList.add(new Student(6, "Kyle", "Colorado Springs"));
-        studentList.add(new Student(10, "Taylor", "Colorado Springs"));
-        studentList.add(new Student(5, "Rehema", "Houston"));
-        studentList.add(new Student(9, "Caleb", "Oklahoma City"));
-        studentList.add(new Student(3, "Jennifer", "Rhode Island"));
-        studentList.add(new Student(8, "Mickayla", "Salisbury"));        
+        studentList.add(new T(2, "Joshua", "Aurora"));
+        studentList.add(new T(1, "Douglas", "Bulawayo"));
+        studentList.add(new T(4, "Kianna", "Burnsville"));
+        studentList.add(new T(7, "Kelsey", "Colorado Springs"));
+        studentList.add(new T(6, "Kyle", "Colorado Springs"));
+        studentList.add(new T(10, "Taylor", "Colorado Springs"));
+        studentList.add(new T(5, "Rehema", "Houston"));
+        studentList.add(new T(9, "Caleb", "Oklahoma City"));
+        studentList.add(new T(3, "Jennifer", "Rhode Island"));
+        studentList.add(new T(8, "Mickayla", "Salisbury"));        
 
         return studentList;
     }
     
     //Print Students
-    public static void printStudents(ArrayList<Student> studentList){
+    public static void printStudents(ArrayList<T> studentList){
         studentList.forEach((student) -> System.out.println(student));
     }
 
