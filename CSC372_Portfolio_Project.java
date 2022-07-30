@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -37,10 +39,12 @@ public class CSC372_Portfolio_Project {
         vehicleList.addAll(vehicleArray);
 
         //Output
+        //Will also save to vehicles.txt
         System.out.println(vehicleList);
-        
+        saveVehicles(vehicleList);        
 
-        //Conclusion   
+        //Conclusion
+        conclusion();   
     }
     
 
@@ -57,7 +61,9 @@ public class CSC372_Portfolio_Project {
         String modelInput;
         double mpgInput;
 
-        for(int i = 0; i < numVehicles; i++){
+        int i = 0;
+
+        while(i < numVehicles){
 
             System.out.print("\nWhat is the make of vehicle #" + (i+1) + ": ");
             makeInput = scnr.next();
@@ -68,10 +74,37 @@ public class CSC372_Portfolio_Project {
             System.out.print("What MPG does the " +makeInput + " " + modelInput +" get: ");
             mpgInput = scnr.nextDouble();
 
-            vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
+            try{
+                vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
+                i++;
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+                System.out.println("Vehicle not added");
+            }
+            
         }
         scnr.close();
     
+    }
+
+    public static void saveVehicles(LinkedList<Vehicle> vehicleList){
+        System.out.println("Saving to vehicles.txt");
+        try {
+
+            FileOutputStream fileStream = new FileOutputStream("vehicles.txt");
+            PrintWriter outFS = new PrintWriter(fileStream);
+        
+            outFS.println(vehicleList);     
+
+            outFS.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void conclusion(){
+        System.out.println("\nGoodbye!");
     }
 
 }
