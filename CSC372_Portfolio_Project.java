@@ -80,8 +80,9 @@ public class CSC372_Portfolio_Project {
                 vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
                 i++;
             }catch(InputMismatchException e){
-                System.out.println(e.getMessage());
+                System.out.println("\nNot a valid MPG: Use a number.");
                 System.out.println("Vehicle not added");
+                scnr.next();
             }
             
         }
