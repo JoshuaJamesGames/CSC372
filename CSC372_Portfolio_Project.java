@@ -1,6 +1,7 @@
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*
@@ -72,12 +73,13 @@ public class CSC372_Portfolio_Project {
             modelInput = scnr.next();
 
             System.out.print("What MPG does the " +makeInput + " " + modelInput +" get: ");
-            mpgInput = scnr.nextDouble();
+            
 
             try{
+                mpgInput = scnr.nextDouble();
                 vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
                 i++;
-            }catch(Exception e){
+            }catch(InputMismatchException e){
                 System.out.println(e.getMessage());
                 System.out.println("Vehicle not added");
             }
