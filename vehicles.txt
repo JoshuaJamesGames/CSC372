@@ -1,4 +1,11 @@
 
-A 2 2 gets 2.00 miles per gallon.
-A 3 3 gets 3.00 miles per gallon.
-A 3 3 gets 3.00 miles per gallon.
+A Bat Mobile gets 8.00 miles per gallon.
+A Oldsmobile Delta88 gets 12.50 miles per gallon.
+A Toyota 4Runner gets 14.40 miles per gallon.
+A Chevy Blazer gets 15.40 miles per gallon.
+A Ford F150 gets 15.80 miles per gallon.
+A Chevy Citation gets 16.90 miles per gallon.
+A Ford FreeStyle gets 19.60 miles per gallon.
+A Toyota Tacoma gets 20.10 miles per gallon.
+A Toyota Corolla gets 36.90 miles per gallon.
+A Tesla 3 gets 127.00 miles per gallon.

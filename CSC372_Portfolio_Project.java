@@ -26,7 +26,8 @@ public class CSC372_Portfolio_Project {
     public static void main(String[] args) {
         LinkedList<Vehicle> vehicleList = new LinkedList<Vehicle>();
         Vehicle[] vehicleArray;
-        int numVehicles = 3;
+        int numVehicles = 10;
+        
         //Intro
         introduction(numVehicles);
 
