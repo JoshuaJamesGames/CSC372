@@ -1,6 +1,6 @@
 /*
 LinkedList for CSC372 Portfolio Project
-using Generic Type T
+using Generic Type T so it may function with any object
 
 Sortable using a comparator (milesPerGallon)
 */
@@ -27,7 +27,7 @@ public class LinkedList<T> {
         }
     }
 
-    //addAll
+    //addAll - also takes a generic array
     public void addAll(T[] array){
         
         int size = 0;
@@ -83,7 +83,7 @@ public class LinkedList<T> {
         return array;
     }
 
-    //toString
+    //toString for easy printing - relies toString override within the object
     @Override
     public String toString(){
         String nodeOutputs = "";
@@ -97,10 +97,12 @@ public class LinkedList<T> {
 
         return nodeOutputs;
     }
-
-    //sort (with comparator)
+  
 }
 
+//Nodes of generic type compose the linked list
+//Each node links to the next - typically noncontiguous
+//This is a singly linked list that only connects forward
 class Node<T>{
     
     private T thisObject;

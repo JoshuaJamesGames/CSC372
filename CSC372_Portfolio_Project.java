@@ -1,9 +1,3 @@
-import java.io.FileOutputStream;
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 /*
 Write a Java program that incorporates a loop that prompts a user for vehicle data. 
 Vehicle data are private fields in a Vehicle class that include:
@@ -20,6 +14,12 @@ and viewed using a simple plain-text editor such as notepad.
 
 Validate numeric data for miles-per-gallon.
 */
+
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class CSC372_Portfolio_Project {
 
@@ -48,12 +48,13 @@ public class CSC372_Portfolio_Project {
         conclusion();   
     }
     
-
+    //Outputs an introduction
     static void introduction(int numVehicles){
         System.out.println("Welcome to the Vehicle Miles Per Gallon sorter!");
         System.out.println("Let's collect " + numVehicles + " vehicles from you.");
     }
 
+    //Collects Input from user
     public static void getVehicles(int numVehicles, LinkedList<Vehicle> vehicleList){
         
         Scanner scnr = new Scanner(System.in);
@@ -74,7 +75,7 @@ public class CSC372_Portfolio_Project {
 
             System.out.print("What MPG does the " +makeInput + " " + modelInput +" get: ");
             
-
+            //If there is an input mismatch, ie not a number for MPG - don't add the vehicle
             try{
                 mpgInput = scnr.nextDouble();
                 vehicleList.add(new Vehicle(makeInput, modelInput, mpgInput));
@@ -90,6 +91,8 @@ public class CSC372_Portfolio_Project {
     
     }
 
+    //Save the vehicles to a text file named vehicles.txt
+    //Using println because toString is handily overriden
     public static void saveVehicles(LinkedList<Vehicle> vehicleList){
         System.out.println("Saving to vehicles.txt");
         try {

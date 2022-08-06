@@ -23,11 +23,13 @@ public class Vehicle implements Comparable<Vehicle>{
 
     }
 
+    //Overriding toString for easy printing
     @Override
     public String toString(){
         return String.format("A %s %s gets %.02f miles per gallon.", make, model, milesPerGallon);
     }
 
+    //Overriding compareTo so that Array.sort works with this object
     @Override
     public int compareTo(Vehicle vehicle){
         
