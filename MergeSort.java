@@ -15,7 +15,7 @@ public class MergeSort {
     }
 
     //Classic array Merge - called by mergeSort
-    public static void merge(Student[] leftArray,Student[] rightArray, Student[] sortArray,int leftArraySize, int rightArraySize, Comparator<Student> comparator){
+    public static <T> void merge(T[] leftArray,T[] rightArray, T[] sortArray,int leftArraySize, int rightArraySize, Comparator<T> comparator){
       
         int i = 0;
         int left = 0;
@@ -39,13 +39,25 @@ public class MergeSort {
         }
     }
     
-    //Classic mergSort with added Comparator
-    public static void mergeSort(Student[] sortArray, int arrayLength, Comparator<Student> comparator){
+    //Classic mergeSort with Comparator
+    public static <T> void mergeSort(T[] sortArray, int arrayLength, Comparator<T> comparator){
         if (arrayLength < 2){return;}
         
         int middle = arrayLength / 2;
-        Student [] leftArray = new Student[middle];
-        Student [] rightArray = new Student[arrayLength-middle];
+        
+        //Need to create Arraylist of type T to and set size
+        //for Casting shenanigans
+        ArrayList<T> leftArrayList = new ArrayList<T>();
+        for(int i = 0; i< middle; i++){
+            leftArrayList.add(null);
+        }
+        ArrayList<T> rightArrayList = new ArrayList<T>();
+        for(int i = middle; i< arrayLength; i++){
+            rightArrayList.add(null);
+        }
+
+        T[] leftArray =  (T[]) leftArrayList.toArray();
+        T[] rightArray = (T[]) rightArrayList.toArray();
         
       //Dividing array into two and copying into two separate arrays
         int j = 0;
