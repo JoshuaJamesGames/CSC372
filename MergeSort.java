@@ -14,30 +14,7 @@ public class MergeSort {
 
     }
 
-    //Classic array Merge - called by mergeSort
-    public static <T> void merge(T[] leftArray,T[] rightArray, T[] sortArray,int leftArraySize, int rightArraySize, Comparator<T> comparator){
-      
-        int i = 0;
-        int left = 0;
-        int right = 0;
-        
-        //The while loops check the conditions for merging
-        while(left<leftArraySize && right<rightArraySize){
-            
-            if(comparator.compare(leftArray[left],rightArray[right]) < 0){
-                sortArray[i++] = leftArray[left++];
-            }
-            else{
-                sortArray[i++] = rightArray[right++];
-            }
-        }
-        while(left<leftArraySize){
-            sortArray[i++] = leftArray[left++];
-        }
-        while(right<rightArraySize){
-          sortArray[i++] = rightArray[right++];
-        }
-    }
+    
     
     //Classic mergeSort with Comparator
     public static <T> void mergeSort(T[] sortArray, int arrayLength, Comparator<T> comparator){
@@ -76,6 +53,31 @@ public class MergeSort {
 
       //Call merge method on each subdivision to sort and assemble
         merge(leftArray, rightArray, sortArray, middle, arrayLength-middle, comparator);
+    }
+
+    //Classic array Merge - called by mergeSort
+    public static <T> void merge(T[] leftArray,T[] rightArray, T[] sortArray,int leftArraySize, int rightArraySize, Comparator<T> comparator){
+      
+        int i = 0;
+        int left = 0;
+        int right = 0;
+        
+        //The while loops check the conditions for merging
+        while(left<leftArraySize && right<rightArraySize){
+            
+            if(comparator.compare(leftArray[left],rightArray[right]) < 0){
+                sortArray[i++] = leftArray[left++];
+            }
+            else{
+                sortArray[i++] = rightArray[right++];
+            }
+        }
+        while(left<leftArraySize){
+            sortArray[i++] = leftArray[left++];
+        }
+        while(right<rightArraySize){
+          sortArray[i++] = rightArray[right++];
+        }
     }
 
     public static ArrayList<Student> convertToArrayList(Student[] array){
