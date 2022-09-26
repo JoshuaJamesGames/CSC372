@@ -32,7 +32,7 @@ public class MergeSort {
         for(int i = middle; i< arrayLength; i++){
             rightArrayList.add(null);
         }
-
+        @SuppressWarnings("Unchecked")
         T[] leftArray =  (T[]) leftArrayList.toArray();
         T[] rightArray = (T[]) rightArrayList.toArray();
         
